@@ -7,6 +7,11 @@ import { difficulty } from '../App'
 Modal.setAppElement('#root')
 
 export const SettingsModal = ({ isOpen, handleClose, styles, darkMode, toggleDarkMode, difficultyLevel, setDifficultyLevel, levelInstructions }) => {
+  const difficultyCzech = {
+    'easy': 'lehká',
+    'normal': 'normální',
+    'hard': 'těžká'
+  }
   return (
     <Modal
       isOpen={isOpen}
@@ -18,7 +23,7 @@ export const SettingsModal = ({ isOpen, handleClose, styles, darkMode, toggleDar
         <div
           className={`h-full flex flex-col items-center justify-center max-w-[390px] mx-auto pt-9 text-primary dark:text-primary-dark `}
         >
-          <h1 className="text-center mb-4 sm:text-3xl text-2xl">Settings</h1>
+          <h1 className="text-center mb-4 sm:text-3xl text-2xl">Nastavení</h1>
           <div className="flex-1 w-full border-b border-slate-400 mb-4">
             <button
               className="absolute top-4 right-4 rounded-full nm-flat-background dark:nm-flat-background-dark text-primary dark:text-primary-dark p-1 w-6 h-6 sm:p-2 sm:h-8 sm:w-8 hover:nm-inset-background dark:hover:nm-inset-background-dark"
@@ -45,12 +50,12 @@ export const SettingsModal = ({ isOpen, handleClose, styles, darkMode, toggleDar
                 />
               </Switch>
               <Switch.Label as="span" className="ml-3 cursor-pointer">
-                Dark Mode
+                Tmavý režim
               </Switch.Label>
             </Switch.Group>
 
             <RadioGroup value={difficultyLevel} onChange={setDifficultyLevel} className="mt-6">
-              <RadioGroup.Label className="w-full text-center">Difficulty Level</RadioGroup.Label>
+              <RadioGroup.Label className="w-full text-center">Úroveň obtížnosti</RadioGroup.Label>
               <div className="grid grid-cols-3 gap-2 rounded-full mt-2 p-1 nm-inset-background dark:nm-inset-background-dark">
                 {Object.keys(difficulty).map((option) => (
                   <RadioGroup.Option
@@ -65,7 +70,7 @@ export const SettingsModal = ({ isOpen, handleClose, styles, darkMode, toggleDar
                         rounded-full py-2 px-3 flex items-center justify-center text-sm font-bold uppercase sm:flex-1 cursor-pointer`
                     }
                   >
-                    <RadioGroup.Label as="p">{option}</RadioGroup.Label>
+                    <RadioGroup.Label as="p">{difficultyCzech[option]}</RadioGroup.Label>
                   </RadioGroup.Option>
                 ))}
               </div>
@@ -74,13 +79,13 @@ export const SettingsModal = ({ isOpen, handleClose, styles, darkMode, toggleDar
           </div>
           <div className="flex flex-col items-center">
             <div className="mb-4">
-              If you're enjoying this game, you can show your support by{' '}
+              Jestli se ti hra líbí, můžeš podpořit původní autorku{' '}
               <a
                 href="https://www.buymeacoffee.com/katherinecodes"
                 target="_blank"
                 rel="noreferrer"
               >
-                buying me a coffee
+                a&nbsp;koupit jí kafe
               </a>
               <span className="ml-1 text-xs">💛</span>
             </div>
@@ -92,7 +97,7 @@ export const SettingsModal = ({ isOpen, handleClose, styles, darkMode, toggleDar
             >
               <img
                 alt="buy me a coffee"
-                src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=katherinecodes&button_colour=eab308&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff"
+                src="https://img.buymeacoffee.com/button-api/?text=Koupit kafe&emoji=&slug=katherinecodes&button_colour=eab308&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff"
               />
             </a>
           </div>

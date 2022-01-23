@@ -15,12 +15,12 @@ export const InfoModal = ({ isOpen, handleClose, darkMode, styles }) => (
       </button>
       <div className="h-full flex flex-col items-center justify-center max-w-[390px] mx-auto pt-9 text-primary dark:text-primary-dark">
         <div className="flex-1 w-full sm:text-base text-sm">
-          <h1 className="text-center sm:text-3xl text-2xl">How to play</h1>
+          <h1 className="text-center sm:text-3xl text-2xl">Jak hrát</h1>
           <ul className="list-disc pl-5 block sm:text-base text-sm">
-            <li className="mt-6 mb-2">You have 6 guesses to guess the correct word.</li>
-            <li className="mb-2">You can guess any valid word.</li>
+            <li className="mt-6 mb-2">Máš 6 pokusů na uhodnutí správného slova.</li>
+            <li className="mb-2">Můžeš hádat jakékoli povolené slovo.</li>
             <li className="mb-2">
-              After each guess, each letter will turn green, yellow, or gray.
+              Po každém pokusu se písmena obarví zeleně, žlutě nebo šedivě.
             </li>
           </ul>
           <div className="mb-3 mt-8 flex items-center">
@@ -28,23 +28,23 @@ export const InfoModal = ({ isOpen, handleClose, darkMode, styles }) => (
               W
             </span>
             <span className="mx-2">=</span>
-            <span>Correct letter, correct spot</span>
+            <span>Správné písmeno, správná pozice</span>
           </div>
           <div className="mb-3">
             <span className="nm-inset-yellow-500 text-gray-50 inline-flex items-center justify-center text-3x w-10 h-10 rounded-full">
               W
             </span>
             <span className="mx-2">=</span>
-            <span>Correct letter, wrong spot</span>
+            <span>Správné písmeno, špatná pozice</span>
           </div>
           <span className="nm-inset-n-gray text-gray-50 inline-flex items-center justify-center text-3x w-10 h-10 rounded-full">
             W
           </span>
           <span className="mx-2">=</span>
-          <span>Wrong letter</span>
+          <span>Špatné písmeno</span>
         </div>
         <div className="flex justify-center sm:text-base text-sm">
-          <span>This project is open source on</span>
+          <span>Založeno na open source projektu:</span>
           <a
             className="ml-[6px] rounded-full h-5 w-5 sm:h-6 sm:w-6"
             href="https://github.com/octokatherine/word-master"

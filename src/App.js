@@ -80,11 +80,11 @@ function App() {
   const [difficultyLevel, setDifficultyLevel] = useLocalStorage('difficulty', difficulty.normal)
   const getDifficultyLevelInstructions = () => {
     if (difficultyLevel === difficulty.easy) {
-      return 'Guess any 5 letters'
+      return 'Hádej libovolných 5 písmen'
     } else if (difficultyLevel === difficulty.hard) {
-      return 'Guess any valid word using all the hints you\'ve been given'
+      return 'Hádej kterékoli povolené slovo s použítím předchozích nápověd'
     } else {
-      return 'Guess any valid word'
+      return 'Hádej kterékoli povolené slovo'
     }
   }
   const [exactGuesses, setExactGuesses] = useLocalStorage('exact-guesses', {})
@@ -146,9 +146,9 @@ function App() {
 
   // returns an array with a boolean of if the word is valid and an error message if it is not
   const isValidWord = (word) => {
-    if (word.length < 5) return [false, `please enter a 5 letter word`]
+    if (word.length < 5) return [false, `Slovo musí mít 5 písmen.`]
     if (difficultyLevel === difficulty.easy) return [true]
-    if (!words[word.toLowerCase()]) return [false, `${word} is not a valid word. Please try again.`]
+    if (!words[word.toLowerCase()]) return [false, `${word} není povolené slovo. Zkus to znovu!`]
     if (difficultyLevel === difficulty.normal) return [true]
     const guessedLetters = Object.entries(letterStatuses).filter(([letter, letterStatus]) =>
       [status.yellow, status.green].includes(letterStatus)
@@ -158,7 +158,7 @@ function App() {
       ([position, letter]) => word[position] === letter
     )
     if (!yellowsUsed || !greensUsed)
-      return [false, `In hard mode, you must use all the hints you've been given.`]
+      return [false, `U těžké obtíznosti musíš využít všechny předchozí nápovědy.`]
     return [true]
   }
 
@@ -336,7 +336,7 @@ function App() {
             <Settings />
           </button>
           <h1 className="flex-1 text-center text-xl xxs:text-2xl sm:text-4xl tracking-wide font-bold font-righteous">
-            WORD MASTER
+            MISTR SLOVA
           </h1>
           <button
             type="button"
@@ -376,7 +376,7 @@ function App() {
                   className="rounded-lg z-10 px-6 py-2 text-lg nm-flat-background dark:nm-flat-background-dark hover:nm-inset-background dark:hover:nm-inset-background-dark text-primary dark:text-primary-dark"
                   onClick={playAgain}
                 >
-                  Play Again
+                  Hrát znovu
                 </button>
               </div>
             </div>

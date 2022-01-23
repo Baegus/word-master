@@ -26,7 +26,7 @@ export const EndGameModal = ({
           className="rounded-lg px-6 py-2 mt-8 text-lg nm-flat-background dark:nm-flat-background-dark hover:nm-inset-background dark:hover:nm-inset-background-dark text-primary dark:text-primary-dark"
           onClick={playAgain}
         >
-          Play Again
+          Hrát znovu
         </button>
       </div>
     )
@@ -48,29 +48,29 @@ export const EndGameModal = ({
             </button>
           {gameState === state.won && (
             <>
-              <img src={Success} alt="success" height="auto" width="auto" />
-              <h1 className=" text-3xl">Congrats!</h1>
+              <img src={Success} alt="výborně" height="auto" width="auto" />
+              <h1 className=" text-3xl">Gratuluji!</h1>
               <p className="mt-6">
-                Current streak: <strong>{currentStreak}</strong> {currentStreak > 4 && '🔥'}
+                Akutální skóre: <strong>{currentStreak}</strong> {currentStreak > 4 && '🔥'}
               </p>
               <p>
-                Longest streak: <strong>{longestStreak}</strong>
+                Nejvyšší skóre: <strong>{longestStreak}</strong>
               </p>
             </>
           )}
           {gameState === state.lost && (
             <>
-              <img src={Fail} alt="success" height="auto" width="80%" />
+              <img src={Fail} alt="smůla" height="auto" width="80%" />
               <div className="text-primary dark:text-primary-dark text-4xl text-center">
-                <p>Oops!</p>
+                <p>Jejda!</p>
                 <p className="mt-3 text-2xl">
-                  The word was <strong>{answer}</strong>
+                  Slovo bylo <strong>{answer}</strong>
                 </p>
                 <p className="mt-6 text-base">
-                  Current streak: <strong>{currentStreak}</strong> {currentStreak > 4 && '🔥'}
+                  Akutální skóre: <strong>{currentStreak}</strong> {currentStreak > 4 && '🔥'}
                 </p>
                 <p className="text-base">
-                  Longest streak: <strong>{longestStreak}</strong>
+                  Nejvyšší skóre: <strong>{longestStreak}</strong>
                 </p>
               </div>
             </>
